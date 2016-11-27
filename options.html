@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<title>Download Filename Controller</title>
+
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="options.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="options.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <h1>Rule management</h1>
+  
+    <table class="table " >
+      <thead><tr>
+        <th>Change order</th>
+        <th>Rule type</th>
+        <th>Pattern</th>
+        <th>Folder (relative to your Downloads folder)</th>
+        <th>Enabled</th>
+        <th>Remove</th>
+      </tr></thead>
+      <tbody id=rules>
+      </tbody>
+    </table>
+    <button id=new class="btn btn-primary">New Rule</button>
+
+  </div>
+  <hr>
+  <div class="row">
+    <h1>Wait ... What ? ...</h1>
+    <h3>What is this and why ?</h3>
+    <p>Hibikin is a chrome extension allowing you to define on which folders your downloads should be saved by default. If you are tired of your Downloads folder being a mess, this is for you !</p>
+    <h3>So how does it work ?</h3>
+    <p>Define rules for each of your folders. Now when downloading a file that matches those rules, the file will be automatically in the right folder !</p>
+    <h3>Rules ? ...</h3>
+    <p>For instance, you might want all the .exe in a "Programs" folder, for that, just define a rule that says "Ends with" ".exe" !
+    If you wanna save funny pictures from your favorite website in a "funny" folder, use the "Begins with" rule with the url of your website.
+    For people with more precise needs, you can directly use regexps.</p>
+    <h3>I want to save it in THIS folder !</h3>
+    <p>Unfortunately, you can only save in folders that are inside your Downloads folder. This is set by Google due to security reasons.</p>
+    <h3>Why is there an order for the rules and why does it matter ?</h3>
+    <p>You might have a rule to save all gifs in a "gif" folder. And a rule to save all pictures from imgur on a "imgur" folder.
+    In that case, if you save a gif from imgur, only the first rule found will be applied. Which is why order matters.</p>
+    <h3>The hell are regexps ??</h3>
+    <p>Something that was invented a long time ago to match string of characters. You can find out how to use it <a href="http://regexone.com/" target="_blank">here</a>.</p>
+    <h3>I'm still confused !</h3>
+    <p>Eat a Persim berry. Or send me a mail at pierre.flores17@gmail.com !</p>
+    <h3>Why is there an anime chick ? How is it related to this extension ?</h3>
+    <p>I just like it.</p>
+    
+    
+  </div>
+
+</div>
+<table hidden>
+<tr id=rule-template class="rule" hidden>
+  <td class=nowrap><button class="move-up btn btn-default">&uarr;</button>
+    <button class="move-down btn btn-default">&darr;</button></td>
+  </td>
+  <td>
+    <select class="matcher form-control">
+      <option value=begins>Begins with</option>
+      <option value=ends>Ends with</option>
+      <option value=url-regex>Regexp</option>
+    </select>
+  </td>
+  <td>
+    <input type=text class="match-param form-control">
+  </td>
+  <td>
+    <input type=text class="match-folder form-control">
+  </td>
+  <td>
+    <input type=checkbox class="enabled" checked>
+  </td>
+  <td>
+    <button class="remove btn btn-danger">Remove</button>
+  </td>
+</tr>
+</table>
+</body>
+</html>

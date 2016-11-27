@@ -1,0 +1,10 @@
+body {
+  background-image:url('hibiki.png');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:right bottom; 
+  background-size:452px 640px; 
+}
+.container {
+  background-color: rgba(230,230,230,0.8);
+}
